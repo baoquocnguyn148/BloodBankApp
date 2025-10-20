@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- =============================================================== -->
+    <!-- I. MÀU SẮC CHỦ ĐẠO CỦA ỨNG DỤNG (THEME COLORS) -->
+    <!-- =============================================================== -->
+    <color name="colorPrimary">#E63946</color>
+    <color name="colorPrimaryDark">#D82B3A</color>
+    <color name="colorAccent">#457B9D</color>
+
+    <color name="primary_red">#E63946</color>
+    <color name="primary_red_dark">#D82B3A</color>
+
+    <!-- =============================================================== -->
+    <!-- II. BẢNG MÀU CƠ BẢN VÀ XÁM (BASIC & GRAYSCALE PALETTE) -->
+    <!-- =============================================================== -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_dark">#212529</color>
+    <color name="text_gray">#6C757D</color>
+    <color name="background_light">#F5F7FA</color>
+
+    <!-- Định nghĩa lại các màu CŨ để các màn hình khác không lỗi -->
+    <color name="gray">#6C757D</color>
+    <color name="dark_gray">#4A4A4A</color>
+    <color name="lightGray">#EEEEEE</color>
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
+
+    <!-- =============================================================== -->
+    <!-- III. MÀU SẮC CHO CÁC TRẠNG THÁI VÀ GIAO DIỆN (STATUS & UI COLORS) -->
+    <!-- =============================================================== -->
+    <color name="button_dark_gray">#343A40</color>
+
+    <!-- Màu cho các thẻ trạng thái -->
+    <color name="status_pending_bg">#E3F2FD</color>
+    <color name="status_approved_bg">#E8F5E9</color>
+    <color name="status_donors_bg">#FFF3E0</color>
+    <color name="status_success">#388E3C</color>
+
+    <!-- ✅✅✅ THÊM 2 MÀU CÒN THIẾU CHO TRẠNG THÁI REJECTED ✅✅✅ -->
+    <color name="status_rejected_bg">#FFEBEE</color>
+    <color name="status_rejected_text">#D32F2F</color>
+
+    <!-- Màu cho chữ và icon trong thẻ trạng thái -->
+    <color name="status_pending_text">#1976D2</color>
+    <color name="status_approved_text">#388E3C</color>
+    <color name="status_donors_text">#F57C00</color>
+
+    <!-- Màu cho chip trạng thái trong danh sách yêu cầu -->
+    <color name="chip_pending_bg">#FFC107</color>
+    <color name="chip_approved_bg">#28A745</color>
+
+    <!-- Định nghĩa lại các màu CŨ khác -->
+    <color name="accent_blue">#1976D2</color>
+    <color name="accent_orange">#F57C00</color>
+    <color name="red_light_background">#FFEBEE</color>
+    <color name="bg_card_pink">#FFEBEE</color>
+    <color name="bg_card_blue">#E3F2FD</color>
+    <color name="bg_card_yellow">#FFF3E0</color>
+    <color name="bg_card_green">#E8F5E9</color>
+    <color name="stroke_card_pink">#FFE0E0</color>
+    <color name="stroke_card_blue">#C8E6C9</color>
+    <color name="stroke_card_yellow">#FFECB3</color>
+    <color name="stroke_card_green">#E8F5E9</color>
+
+</resources>

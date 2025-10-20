@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/bg_hero_gradient">
+
+    <TextView
+        android:text="Save Lives Through"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:text="Blood Donation"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:text="Connect donors with recipients. Manage blood inventory efficiently. Make a difference in your community."
+        android:textAlignment="center"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnBecomeDonor"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Become a Donor"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnRequestBlood"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Request Blood"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/outline_button"/>
+    </LinearLayout>
+</LinearLayout>

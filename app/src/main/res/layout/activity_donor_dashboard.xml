@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA"
+    tools:context=".activities.DonorDashboard">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/donor_dashboard_title"
+            app:titleTextColor="@android:color/white">
+
+            <!-- ✅ CẢI THIỆN: Nút Logout với kích thước vùng chạm tối thiểu -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_logout"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="8dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:text="@string/logout"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:cornerRadius="24dp"
+                app:strokeColor="@android:color/white"
+                app:strokeWidth="1.5dp" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- My Profile Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- ✅ CẢI THIỆN: Thay LinearLayout bằng TextView với compound drawable -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/my_profile"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@drawable/ic_person"
+                        app:drawableTint="?attr/colorPrimary" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- NAME -->
+                        <TextView
+                            style="@style/ProfileLabel"
+                            android:text="@string/label_name" />
+
+                        <TextView
+                            android:id="@+id/tv_donor_name"
+                            style="@style/ProfileValue"
+                            android:layout_marginBottom="16dp"
+                            tools:text="Ha Duc Phat" />
+
+                        <!-- EMAIL -->
+                        <TextView
+                            style="@style/ProfileLabel"
+                            android:text="@string/label_email" />
+
+                        <TextView
+                            android:id="@+id/tv_donor_email"
+                            style="@style/ProfileValue"
+                            android:layout_marginBottom="16dp"
+                            tools:text="haducphat@gmail.com" />
+
+                        <!-- ✅ CẢI THIỆN: Thêm baselineAligned="false" để tối ưu hiệu suất -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/ProfileLabel"
+                                    android:text="@string/label_blood_group" />
+
+                                <TextView
+                                    android:id="@+id/tv_donor_blood_group"
+                                    style="@style/ProfileValue"
+                                    android:textColor="?attr/colorPrimary"
+                                    tools:text="B-" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/ProfileLabel"
+                                    android:text="@string/label_phone" />
+
+                                <TextView
+                                    android:id="@+id/tv_donor_phone"
+                                    style="@style/ProfileValue"
+                                    tools:text="0987123456" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- ADDRESS -->
+                        <TextView
+                            style="@style/ProfileLabel"
+                            android:text="@string/label_address" />
+
+                        <TextView
+                            android:id="@+id/tv_donor_address"
+                            style="@style/ProfileValue"
+                            tools:text="82 To Hien Thanh, District 1, HCMC" />
+                    </LinearLayout>
+
+
+                    <!-- Available Switch -->
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_available"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:checked="true"
+                        android:minHeight="48dp"
+                        android:text="@string/available_to_donate"
+                        android:textSize="16sp" />
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E0E0E0" />
+
+                    <!-- Recent History Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recent_history"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <!-- History RecyclerView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_donation_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:nestedScrollingEnabled="false"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_donation_history" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Summary Cards Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/SummaryCard"
+                    android:layout_marginEnd="8dp"
+                    app:cardBackgroundColor="#FFEBEE">
+
+                    <LinearLayout style="@style/SummaryContent">
+
+                        <TextView
+                            style="@style/SummaryTitle"
+                            android:text="@string/total_donations"
+                            app:drawableStartCompat="@drawable/ic_blood_drop"
+                            app:drawableTint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/tv_total_donations"
+                            style="@style/SummaryValue"
+                            android:textColor="?attr/colorPrimary"
+                            tools:text="3" />
+
+                        <TextView
+                            style="@style/SummaryDescription"
+                            android:text="@string/lifetime_donations" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/SummaryCard"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    app:cardBackgroundColor="#E3F2FD">
+
+                    <LinearLayout style="@style/SummaryContent">
+
+                        <TextView
+                            style="@style/SummaryTitle"
+                            android:text="@string/lives_saved"
+                            app:drawableStartCompat="@drawable/ic_heart"
+                            app:drawableTint="@color/accent_blue" />
+
+                        <TextView
+                            android:id="@+id/tv_lives_saved"
+                            style="@style/SummaryValue"
+                            android:textColor="@color/accent_blue"
+                            tools:text="9" />
+
+                        <TextView
+                            style="@style/SummaryDescription"
+                            android:text="@string/estimated_lives" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/SummaryCard"
+                    android:layout_marginStart="8dp"
+                    app:cardBackgroundColor="#FFF3E0">
+
+                    <LinearLayout style="@style/SummaryContent">
+
+                        <TextView
+                            style="@style/SummaryTitle"
+                            android:text="@string/donor_level"
+                            app:drawableStartCompat="@drawable/ic_badge"
+                            app:drawableTint="@color/accent_orange" />
+
+                        <TextView
+                            android:id="@+id/tv_donor_level"
+                            style="@style/SummaryValue"
+                            android:textColor="@color/accent_orange"
+                            android:textSize="28sp"
+                            tools:text="Bronze" />
+
+                        <TextView
+                            style="@style/SummaryDescription"
+                            android:text="@string/achievement_badge" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Action Buttons Grid -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:columnCount="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_edit_profile"
+                    style="@style/ActionButton"
+                    android:text="@string/edit_profile"
+                    app:icon="@drawable/ic_edit" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_schedule_donation"
+                    style="@style/ActionButton"
+                    android:text="@string/schedule_donation"
+                    app:icon="@drawable/ic_schedule" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_view_requests"
+                    style="@style/ActionButton"
+                    android:text="@string/view_requests"
+                    app:icon="@drawable/ic_requests" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_notifications"
+                    style="@style/ActionButton"
+                    android:text="@string/notifications"
+                    app:icon="@drawable/ic_notifications" />
+            </GridLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

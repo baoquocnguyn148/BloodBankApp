@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="12dp"
+    android:background="@drawable/card_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvGroupName"
+        android:text="A+"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvGroupUnits"
+        android:text="42"
+        android:textColor="#111"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:text="units"
+        android:textSize="13sp"
+        android:textColor="#555" />
+</LinearLayout>

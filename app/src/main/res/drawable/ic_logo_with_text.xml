@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    Đây là một giải pháp tạm thời để tạo một logo "tương tự".
+    Bạn có thể thay thế bằng file ảnh (PNG, SVG) logo thật của bạn sau này.
+    -->
+
+    <!-- Lớp 1: Biểu tượng ngọn lửa (ic_blood_drop hoặc tương tự) -->
+    <item
+        android:drawable="@drawable/ic_blood_drop"
+        android:gravity="center_vertical|start"
+        android:width="24dp"
+        android:height="24dp" />
+
+    <!-- Lớp 2: Thêm một text "BloodConnect" - Cách này không được hỗ trợ trực tiếp -->
+    <!-- Do XML Drawable không thể vẽ text, chúng ta sẽ để trống phần này
+         và dựa vào TextView bên cạnh ImageView trong layout chính nếu cần.
+
+         Trong trường hợp này, chúng ta sẽ để ImageView chỉ chứa icon,
+         và thêm một TextView "BloodConnect" ngay bên cạnh nó trong file activity_home.xml.
+    -->
+
+</layer-list>

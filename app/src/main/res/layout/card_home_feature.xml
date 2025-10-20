@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SỬA LỖI: Đã xóa thẻ <layout> và <data> để loại bỏ lỗi Data Binding -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_gravity="fill"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- SỬA LỖI: Đặt ID cho các view để có thể truy cập từ code Java -->
+        <ImageView
+            android:id="@+id/card_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            tools:src="@drawable/ic_person"
+            tools:background="@drawable/bg_icon_red"
+            tools:tint="@color/red_icon"/>
+
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Blood Donor"/>
+
+        <TextView
+            android:id="@+id/card_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="12sp"
+            android:lineSpacingMultiplier="1.2"
+            tools:text="Register as a donor and save lives."/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- =============================================================== -->
+    <!-- I. THÔNG TIN CHUNG VỀ ỨNG DỤNG (APP INFO) -->
+    <!-- =============================================================== -->
+    <string name="app_name">Blood Bank</string>
+
+    <!-- =============================================================== -->
+    <!-- II. XÁC THỰC & CÁC NHÃN CHUNG (AUTH & COMMON LABELS) -->
+    <!-- =============================================================== -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Full Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="role">Select Role</string>
+
+    <!-- =============================================================== -->
+    <!-- III. VĂN BẢN MÀN HÌNH (SCREEN TEXT) -->
+    <!-- =============================================================== -->
+
+    <!-- Màn hình Đăng ký/Đăng nhập -->
+    <string name="create_account_title">Create an Account</string>
+    <string name="join_community_subtitle">Join our community to save lives.</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="login_here">Login here</string>
+
+    <!-- Màn hình Chính (Home Screen Role Descriptions) -->
+    <string name="donor_title">Blood Donor</string>
+    <string name="donor_description">Register as a donor, track your donations, and save lives.</string>
+    <string name="recipient_title">Recipient</string>
+    <string name="recipient_description">Request blood, search donors, and track your requests.</string>
+    <string name="bank_title">Blood Bank</string>
+    <string name="bank_description">Manage inventory, handle requests, and coordinate donations.</string>
+    <string name="admin_title">Administrator</string>
+    <string name="admin_description">Manage users, view analytics, and oversee operations.</string>
+
+    <!-- Màn hình Donor Dashboard -->
+    <string name="donor_dashboard_title">Donor Dashboard</string>
+    <string name="my_profile">My Profile</string>
+    <string name="label_name">NAME</string>
+    <string name="label_email">EMAIL</string>
+    <string name="label_blood_group">BLOOD GROUP</string>
+    <string name="label_phone">PHONE</string>
+    <string name="label_address">ADDRESS</string>
+    <string name="available_to_donate">Available to Donate</string>
+    <string name="recent_history">Recent History</string>
+    <string name="total_donations">TOTAL DONATIONS</string>
+    <string name="lifetime_donations">Lifetime donations</string>
+    <string name="lives_saved">LIVES SAVED</string>
+    <string name="estimated_lives">estimated lives</string>
+    <string name="donor_level">DONOR LEVEL</string>
+    <string name="achievement_badge">achievement badge</string>
+    <string name="schedule_donation">Schedule Donation</string>
+
+    <!-- Màn hình Recipient Dashboard -->
+    <string name="recipient_dashboard_title">Recipient Dashboard</string>
+    <string name="welcome_recipient_placeholder">Welcome, %1$s</string> <!-- %1$s là placeholder cho tên -->
+    <string name="recipient_dashboard_subtitle">Find blood donors and manage your requests</string>
+    <string name="pending">Pending</string>
+    <string name="approved">Approved</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="request_new_blood">+ Request New Blood</string>
+    <string name="search_donors">🔍 Search Donors</string>
+    <string name="my_requests">📋 My Requests</string>
+    <string name="blood_availability">🩸 Blood Availability</string>
+    <string name="recent_requests">Recent Requests</string>
+    <string name="view_all">View All</string>
+
+    <!-- Màn hình Edit Profile -->
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_blood_group">Blood Group</string>
+    <string name="hint_role">Role</string>
+    <string name="button_update_profile">Update Profile</string>
+
+    <!-- =============================================================== -->
+    <!-- IV. VAI TRÒ NGƯỜI DÙNG (USER ROLES) -->
+    <!-- =============================================================== -->
+    <string name="donor">Donor</string>
+    <string name="recipient">Recipient</string>
+    <string name="blood_bank_staff">Blood Bank Staff</string>
+    <string name="admin">Admin</string>
+
+    <!-- =============================================================== -->
+    <!-- V. CÁC MỤC MENU & HÀNH ĐỘNG (MENU ITEMS & ACTIONS) -->
+    <!-- =============================================================== -->
+    <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
+    <string name="requests">Blood Requests</string>
+    <string name="inventory">Inventory</string>
+    <string name="donors">Donors</string>
+    <string name="filter">Filter</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="view_requests">View Requests</string>
+    <string name="notifications">🔔 Notifications</string>
+
+    <!-- =============================================================== -->
+    <!-- VI. HỘP THOẠI, THÔNG BÁO & PLACEHOLDERS (DIALOGS, TOASTS, ETC.) -->
+    <!-- =============================================================== -->
+
+    <!-- Dialog Texts -->
+    <string name="dialog_logout_title">Confirm Logout</string>
+    <string name="dialog_logout_message">Are you sure you want to log out?</string>
+    <string name="dialog_positive_button">Log Out</string>
+    <string name="dialog_negative_button">Cancel</string>
+
+    <!-- Toast Messages -->
+    <string name="toast_profile_reloaded">Profile reloaded!</string>
+    <string name="toast_profile_updated">Profile updated successfully!</string>
+    <string name="toast_error_occurred">An error occurred. Please try again.</string>
+
+    <!-- Default User Data Placeholders -->
+    <string name="default_user_name">User Name</string>
+    <string name="default_user_email">user@example.com</string>
+    <string name="default_user_phone">Not specified</string>
+    <string name="default_user_address">Not specified</string>
+    <string name="default_blood_group">N/A</string>
+
+    <!-- Content Descriptions for Accessibility -->
+    <string name="content_desc_profile_icon">My Profile Icon</string>
+    <string name="content_desc_user_avatar">User Avatar</string>
+    <string name="blood_request_icon">Blood request icon</string>
+
+</resources>

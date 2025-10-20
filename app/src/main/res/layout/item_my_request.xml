@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/iv_request_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_blood_drop"
+            android:background="@drawable/bg_icon_circle"
+            android:backgroundTint="@color/bg_card_pink"
+            android:padding="10dp"
+            app:tint="@color/primary_red"
+            android:contentDescription="@string/blood_request_icon" />
+
+        <!-- Details Section -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_patient_name_and_blood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/text_dark"
+                tools:text="Patient: Khanh Linh (A+)"/>
+
+            <TextView
+                android:id="@+id/tv_hospital_and_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/text_gray"
+                tools:text="Dai Hoc Y • 2 units"/>
+
+            <TextView
+                android:id="@+id/tv_request_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/text_gray"
+                tools:text="Date: 2025-10-19"/>
+        </LinearLayout>
+
+        <!-- Status Chip -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="Pending"
+            tools:chipBackgroundColor="@color/chip_pending_bg"
+            tools:textColor="@color/white"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

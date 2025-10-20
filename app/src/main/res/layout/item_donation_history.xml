@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Blood Drop Icon -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_icon_container_pink">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="Blood Drop"
+                android:src="@drawable/ic_blood_drop"
+                app:tint="?attr/colorPrimary" />
+        </FrameLayout>
+
+        <!-- Donation Details -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Blood Bank Name -->
+            <TextView
+                android:id="@+id/tv_blood_bank_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Red Cross Blood Bank" />
+
+            <!-- Units and Date -->
+            <TextView
+                android:id="@+id/tv_units_donated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                tools:text="1 unit(s) donated" />
+            <!-- ✅ SỬA LỖI: Đổi text_gray thành gray -->
+
+            <TextView
+                android:id="@+id/tv_donation_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/gray"
+                android:textSize="11sp"
+                tools:text="October 15, 2024" />
+            <!-- ✅ SỬA LỖI: Đổi text_gray thành gray -->
+        </LinearLayout>
+
+        <!-- Status Badge -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_status"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓ Completed"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            app:chipBackgroundColor="@color/status_success"
+            app:chipIconTint="@android:color/white"
+            app:chipStrokeColor="@android:color/transparent" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

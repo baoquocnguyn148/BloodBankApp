@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="28dp"
+    android:background="@drawable/bg_footer_gradient">
+
+    <TextView android:text="10,000+"
+        android:textSize="26sp" android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+    <TextView android:text="Registered Donors"
+        android:textColor="@android:color/white" android:layout_marginBottom="16dp"/>
+
+    <TextView android:text="5,000+"
+        android:textSize="26sp" android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+    <TextView android:text="Lives Saved"
+        android:textColor="@android:color/white" android:layout_marginBottom="16dp"/>
+
+    <TextView android:text="50+"
+        android:textSize="26sp" android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+    <TextView android:text="Blood Banks"
+        android:textColor="@android:color/white" android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:text="© 2025 BloodConnect. Saving lives together."
+        android:textColor="#FFF1F1"
+        android:textSize="12sp"/>
+</LinearLayout>

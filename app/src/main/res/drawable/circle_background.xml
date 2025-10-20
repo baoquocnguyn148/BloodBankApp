@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- ✅ SỬA LỖI: Sử dụng màu colorPrimary thay vì md_theme_primary -->
+    <solid android:color="@color/colorPrimary"/>
+</shape>

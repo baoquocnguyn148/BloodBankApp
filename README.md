@@ -90,16 +90,16 @@ Choose simulator or physical device
 Click Run ▶
 
 
-📂 Project Structure
-app/src/main/java/com/example/bloodbankapp
-│
-├── activities       # Screens / Activities
-├── adapters         # RecyclerView Adapters
-├── database         # DatabaseHelper (SQLite)
-├── models           # User, Request, Inventory models
-└── utils            # SessionManager, constants, helpers
+## 📂 Project Structure
+## app/src/main/java/com/example/bloodbankapp
+## │
+## ├── activities       # Screens / Activities
+## ├── adapters         # RecyclerView Adapters
+## ├── database         # DatabaseHelper (SQLite)
+## ├── models           # User, Request, Inventory models
+## └── utils            # SessionManager, constants, helpers
 
-app/src/main/res
-├── layout           # XML Layout files
-├── drawable         # Icons & graphic assets
-└── values           # colors.xml, strings.xml, themes.xml
+## app/src/main/res
+## ├── layout           # XML Layout files
+## ├── drawable         # Icons & graphic assets
+## └── values           # colors.xml, strings.xml, themes.xml

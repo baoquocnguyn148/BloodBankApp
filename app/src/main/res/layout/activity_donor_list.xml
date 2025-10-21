@@ -40,10 +40,7 @@
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp">
 
-            <!--
-                ✅ SỬA LỖI 1: Giải quyết cảnh báo "No speakable text"
-                Sử dụng android:labelFor để liên kết hint với AutoCompleteTextView.
-            -->
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/bloodGroupFilterLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -62,10 +59,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--
-                ✅ SỬA LỖI 2: Giải quyết cảnh báo "Insufficient text color contrast"
-                Đổi style của nút thành một nút có nền màu (Contained Button)
-            -->
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFilter"
                 android:layout_width="wrap_content"

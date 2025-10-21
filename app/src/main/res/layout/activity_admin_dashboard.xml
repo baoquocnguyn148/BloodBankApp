@@ -64,7 +64,6 @@
                     android:textColor="@color/primary_red"
                     android:layout_marginBottom="8dp" />
 
-                <!-- ✅ LỖI ĐÃ ĐƯỢC SỬA TẠI ĐÂY -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -73,7 +72,7 @@
                     android:textColor="@color/text_gray" />
             </LinearLayout>
 
-            <!-- Statistics Section -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +82,6 @@
                 android:textColor="@color/black"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Stats Grid -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,7 +89,7 @@
                 android:rowCount="2"
                 android:layout_marginBottom="24dp">
 
-                <!-- Donors Card -->
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="140dp"
@@ -331,7 +329,7 @@
                 android:columnCount="2"
                 android:layout_marginBottom="24dp">
 
-                <!-- ✅ CÁC NÚT ĐÃ ĐƯỢC CẬP NHẬT STYLE -->
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_manage_users"
                     style="@style/Widget.Material3.Button.ElevatedButton"
@@ -381,7 +379,7 @@
                     app:iconGravity="textStart" />
             </GridLayout>
 
-            <!-- Bỏ qua phần Recent Activity để đơn giản hóa -->
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

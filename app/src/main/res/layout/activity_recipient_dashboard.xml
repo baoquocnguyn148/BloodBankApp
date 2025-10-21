@@ -282,7 +282,6 @@
                     android:text="@string/recent_requests"
                     android:textColor="@color/text_dark"
                     android:textStyle="bold" />
-                <!-- ✅ ID ĐÃ SỬA: tv_view_all_requests -->
                 <TextView
                     android:id="@+id/tv_view_all_requests"
                     android:layout_width="wrap_content"
@@ -306,8 +305,6 @@
                 tools:itemCount="2"
                 tools:listitem="@layout/item_request_card"
                 tools:visibility="visible"/>
-
-            <!-- ✅ VIEW MỚI: Thông báo khi không có request -->
             <TextView
                 android:id="@+id/tv_no_requests_found"
                 android:layout_width="match_parent"

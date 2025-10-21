@@ -19,7 +19,7 @@ public class DonationHistoryActivity extends AppCompatActivity {
     private RecyclerView rvDonationHistory;
     // private DonationHistoryAdapter adapter; // Sẽ dùng khi có Adapter
 
-    // ✅ SỬA LỖI: Khai báo đúng kiểu dữ liệu UserDAO
+
     private UserDAO userDAO;
     private FirebaseAuth mAuth;
 
@@ -38,7 +38,7 @@ public class DonationHistoryActivity extends AppCompatActivity {
         rvDonationHistory = findViewById(R.id.rv_donation_history);
 
         mAuth = FirebaseAuth.getInstance();
-        // ✅ SỬA LỖI: Khởi tạo đúng đối tượng UserDAO
+
         userDAO = new UserDAO(this);
 
         setupRecyclerView();
@@ -57,17 +57,12 @@ public class DonationHistoryActivity extends AppCompatActivity {
             return;
         }
 
-        // Dòng này bây giờ sẽ hoạt động chính xác vì userDAO là một đối tượng UserDAO
         User currentUser = userDAO.getUserByEmail(firebaseUser.getEmail());
 
         if (currentUser != null) {
-            // Trong tương lai, bạn sẽ lấy danh sách lịch sử hiến máu từ database
-            // ví dụ: List<Donation> donationList = donationDAO.getDonationsForUser(currentUser.getId());
-            // adapter.submitList(donationList);
 
-            // Hiện tại, RecyclerView sẽ trống, đây là hành vi đúng.
         } else {
-            // Xử lý lỗi không tìm thấy data user trong SQLite
+
         }
     }
 

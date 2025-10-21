@@ -36,13 +36,11 @@ public class ScheduleDonationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_donation);
 
-        // Ánh xạ views
         initViews();
 
-        // Thiết lập Toolbar
+
         setupToolbar();
 
-        // Thiết lập các chức năng
         setupDonationCenters();
         setupDatePicker();
         setupTimeSlotSelection();
@@ -67,7 +65,7 @@ public class ScheduleDonationActivity extends AppCompatActivity {
     }
 
     private void setupDonationCenters() {
-        // Dữ liệu giả, sau này bạn có thể lấy từ database hoặc API
+
         String[] centers = new String[]{"Central Blood Bank", "City General Hospital", "District 5 Donation Center"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, centers);
         actvCenter.setAdapter(adapter);
@@ -89,7 +87,7 @@ public class ScheduleDonationActivity extends AppCompatActivity {
                     },
                     year, month, day);
 
-            // Đặt ngày tối thiểu là hôm nay
+
             datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
             datePickerDialog.show();
         });
@@ -108,11 +106,11 @@ public class ScheduleDonationActivity extends AppCompatActivity {
 
     private void setupConfirmButton() {
         btnConfirmSchedule.setOnClickListener(v -> {
-            // Lấy dữ liệu từ các trường
+
             String center = actvCenter.getText().toString();
             String date = etDate.getText().toString();
 
-            // Kiểm tra dữ liệu
+
             if (center.isEmpty()) {
                 Toast.makeText(this, "Please select a donation center", Toast.LENGTH_SHORT).show();
                 return;
@@ -126,12 +124,11 @@ public class ScheduleDonationActivity extends AppCompatActivity {
                 return;
             }
 
-            // Xử lý logic đặt lịch hẹn ở đây (ví dụ: lưu vào database)
+
             String confirmationMessage = "Appointment confirmed!\nCenter: " + center + "\nDate: " + date + "\nTime: " + selectedTimeSlot;
             Toast.makeText(this, confirmationMessage, Toast.LENGTH_LONG).show();
 
-            // Sau khi thành công, có thể quay về màn hình chính
-            // finish();
+
         });
     }
 }

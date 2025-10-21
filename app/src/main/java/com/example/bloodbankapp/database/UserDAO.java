@@ -14,8 +14,8 @@ import java.util.List;
 public class UserDAO extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "bloodbank.db";
-    // ✅ QUAN TRỌNG: Tăng phiên bản để kích hoạt onUpgrade/onCreate
-    private static final int DATABASE_VERSION = 1;
+
+    private static final int DATABASE_VERSION = 2;
     public static final String TABLE_USERS = "users";
 
     public static final String COLUMN_ID = "user_id";

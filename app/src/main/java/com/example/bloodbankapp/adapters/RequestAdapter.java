@@ -26,9 +26,9 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
     private List<Request> requestList;
     private final Context context;
     private final DatabaseHelper dbHelper;
-    private final boolean showAdminButtons; // ✅ Biến mới để kiểm soát việc hiển thị nút
+    private final boolean showAdminButtons;
 
-    // ✅ Constructor mới linh hoạt hơn
+
     public RequestAdapter(Context context, List<Request> requestList, boolean showAdminButtons) {
         this.context = context;
         this.requestList = requestList != null ? requestList : new ArrayList<>();
@@ -56,7 +56,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
         return requestList.size();
     }
 
-    // ✅ Hàm mới để cập nhật dữ liệu cho adapter
+
     public void updateData(List<Request> newRequests) {
         this.requestList.clear();
         this.requestList.addAll(newRequests);

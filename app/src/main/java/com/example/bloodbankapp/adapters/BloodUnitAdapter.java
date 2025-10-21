@@ -22,7 +22,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
-// Tên class đã đúng là BloodUnitAdapter
+
 public class BloodUnitAdapter extends RecyclerView.Adapter<BloodUnitAdapter.BloodUnitViewHolder> {
 
     private final Context context;

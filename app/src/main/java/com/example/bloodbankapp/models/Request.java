@@ -72,8 +72,6 @@ public class Request {
         this.patientName = patientName;
     }
 
-    // ✅ SỬA LỖI: Cung cấp cả hai phương thức getQuantity() và getUnits()
-    // Phương thức getUnits() sẽ là phương thức chính
     public int getUnits() {
         return units;
     }

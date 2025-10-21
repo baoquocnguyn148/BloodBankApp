@@ -21,8 +21,7 @@
             app:title="@string/donor_dashboard_title"
             app:titleTextColor="@android:color/white">
 
-            <!-- ✅ CẢI THIỆN: Nút Logout với kích thước vùng chạm tối thiểu -->
-            <com.google.android.material.button.MaterialButton
+           <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_logout"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
@@ -69,7 +68,7 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- ✅ CẢI THIỆN: Thay LinearLayout bằng TextView với compound drawable -->
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -111,7 +110,7 @@
                             android:layout_marginBottom="16dp"
                             tools:text="haducphat@gmail.com" />
 
-                        <!-- ✅ CẢI THIỆN: Thêm baselineAligned="false" để tối ưu hiệu suất -->
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

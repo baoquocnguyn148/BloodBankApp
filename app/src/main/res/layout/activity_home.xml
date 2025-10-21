@@ -62,7 +62,7 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- ✅ SỬA ĐỔI: Thay đổi thuộc tính layout_above để nội dung chiếm hết không gian phía trên Stats Bar -->
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view_content"
         android:layout_width="match_parent"
@@ -339,7 +339,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ✅ SỬA ĐỔI: Di chuyển Stats Bar xuống dưới cùng -->
+
     <LinearLayout
         android:id="@+id/stats_bar_container"
         android:layout_width="match_parent"
@@ -421,8 +421,6 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <!-- ✅ SỬA ĐỔI: Đã xóa TextView Footer -->
 
 </RelativeLayout>
 

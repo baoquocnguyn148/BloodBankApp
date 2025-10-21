@@ -29,7 +29,7 @@ public class StaffDashboardActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(this);
 
-        // Kiểm tra session và vai trò, nếu không hợp lệ sẽ được điều hướng đi
+
         if (!sessionManager.isLoggedIn() || !"blood_bank_staff".equals(sessionManager.getUserRole())) {
             logout();
             return;
@@ -67,27 +67,25 @@ public class StaffDashboardActivity extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
-        // ✅ SỬA LỖI 1: Kích hoạt nút "Manage Inventory"
+
         cardManageInventory.setOnClickListener(v -> {
-            // Toast.makeText(this, "Manage Inventory Clicked", Toast.LENGTH_SHORT).show(); // Dòng cũ
+
             Intent intent = new Intent(StaffDashboardActivity.this, ManageInventoryActivity.class);
             startActivity(intent);
         });
 
-        // ✅ SỬA LỖI 2: Kích hoạt nút "Handle Requests" (Giả sử nó mở màn hình ViewRequestsActivity)
+
         cardHandleRequests.setOnClickListener(v -> {
             // Toast.makeText(this, "Handle Requests Clicked", Toast.LENGTH_SHORT).show(); // Dòng cũ
             Intent intent = new Intent(StaffDashboardActivity.this, ViewRequestsActivity.class);
             startActivity(intent);
         });
 
-        // ✅ NÚT NÀY ĐÃ ĐÚNG: Mở màn hình danh sách người hiến máu
         cardViewDonors.setOnClickListener(v -> {
             Intent intent = new Intent(StaffDashboardActivity.this, DonorListActivity.class);
             startActivity(intent);
         });
 
-        // Nút logout đã hoạt động đúng
         cardLogout.setOnClickListener(v -> showLogoutConfirmationDialog());
     }
 
@@ -100,9 +98,7 @@ public class StaffDashboardActivity extends AppCompatActivity {
                 .show();
     }
 
-    /**
-     * Hàm logout đã được sửa đúng, không cần thay đổi.
-     */
+
     private void logout() {
         FirebaseAuth.getInstance().signOut();
         sessionManager.logoutUser();

@@ -110,9 +110,9 @@ public class RecipientDashboard extends AppCompatActivity {
     }
 
     private void loadDashboardData() {
-        // ✅✅✅ SỬA LỖI TẠI ĐÂY ✅✅✅
+
         int userId = sessionManager.getUserId();
-        // Giả sử hàm getUserId trả về -1 nếu không có user ID
+
         if (userId == -1) {
             Toast.makeText(this, "Session expired. Please log in again.", Toast.LENGTH_SHORT).show();
             sessionManager.logoutUser();
@@ -121,7 +121,7 @@ public class RecipientDashboard extends AppCompatActivity {
 
         User currentUser = dbHelper.getUserById(userId);
         if (currentUser != null) {
-            // Giả sử bạn có một string resource là: <string name="welcome_recipient_placeholder">Welcome, %1$s</string>
+
             tvWelcome.setText(getString(R.string.welcome_recipient_placeholder, currentUser.getName()));
         }
 

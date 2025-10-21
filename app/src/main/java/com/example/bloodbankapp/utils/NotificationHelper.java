@@ -43,11 +43,7 @@ public class NotificationHelper {
         }
     }
 
-    /**
-     * Hàm để hiển thị một thông báo đơn giản.
-     * @param title   Tiêu đề của thông báo
-     * @param message Nội dung của thông báo
-     */
+
     public void showNotification(String title, String message) {
         NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -57,7 +53,7 @@ public class NotificationHelper {
                 PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, CHANNEL_ID)
-                // ✅✅✅ SỬA LỖI TẠI ĐÂY: SỬ DỤNG ICON CHUẨN CỦA ANDROID ✅✅✅
+
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setContentTitle(title)
                 .setContentText(message)
@@ -71,9 +67,7 @@ public class NotificationHelper {
         }
     }
 
-    /**
-     * Hàm này giữ nguyên, không cần sửa.
-     */
+
     public void notifyDonors(String requiredBloodGroup, String hospital) {
         DatabaseHelper dbHelper = new DatabaseHelper(mContext);
         List<User> allUsers = dbHelper.getAllUsers();

@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- ✅ SỬA LỖI 1: Đặt ID là rv_my_requests -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_my_requests"
             android:layout_width="match_parent"
@@ -32,7 +31,6 @@
             android:clipToPadding="false"
             tools:listitem="@layout/item_my_request"/>
 
-        <!-- ✅ SỬA LỖI 2: Đặt ID là tv_no_requests -->
         <TextView
             android:id="@+id/tv_no_requests"
             android:layout_width="wrap_content"

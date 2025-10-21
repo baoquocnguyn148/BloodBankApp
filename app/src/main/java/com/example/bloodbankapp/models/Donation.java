@@ -1,4 +1,6 @@
-package com.example.bloodbankapp.models;public class Donation {
+package com.example.bloodbankapp.models;
+
+public class Donation {
     private String bankName;
     private int units;
     private String date;

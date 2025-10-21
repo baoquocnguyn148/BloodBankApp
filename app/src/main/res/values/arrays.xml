@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 🩸 Danh sách nhóm máu -->
     <string-array name="blood_groups">
         <item>A+</item>
         <item>A-</item>
@@ -13,7 +12,6 @@
         <item>O-</item>
     </string-array>
 
-    <!-- 👤 Danh sách vai trò người dùng -->
     <string-array name="user_roles">
         <item>Donor</item>
         <item>Recipient</item>

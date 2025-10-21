@@ -6,7 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.bloodbankapp.R;
 
-// ✅ SỬA LỖI: Đảm bảo class kế thừa từ AppCompatActivity
+
 public class NotificationsActivity extends AppCompatActivity {
 
     @Override

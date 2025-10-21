@@ -44,10 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         setupClickListeners();
     }
 
-    /**
-     * Di chuyển logic kiểm tra phiên vào onStart()
-     * onStart() được gọi mỗi khi Activity sắp hiển thị, đáng tin cậy hơn onCreate().
-     */
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -152,9 +149,6 @@ public class LoginActivity extends AppCompatActivity {
                 intent = new Intent(this, RecipientDashboard.class);
                 break;
             default:
-                // ✅✅✅ SỬA LỖI VÒNG LẶP ✅✅✅
-                // Nếu vai trò không xác định, chỉ hiện Toast và xóa session tại chỗ.
-                // KHÔNG gọi hàm logoutUser() có chứa startActivity.
                 Log.e("LoginActivity", "Unknown role navigation attempt: '" + role + "'. Session cleared.");
                 Toast.makeText(this, "Cannot navigate: Unknown user role.", Toast.LENGTH_SHORT).show();
                 sessionManager.logoutUser(); // Gọi hàm logout để nó tự chuyển về Login Activity một cách an toàn.

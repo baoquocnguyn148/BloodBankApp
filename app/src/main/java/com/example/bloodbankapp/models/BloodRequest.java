@@ -9,13 +9,13 @@ public class BloodRequest {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    // --- Các trường mới được thêm vào để hiển thị đầy đủ thông tin cho Admin ---
+
     private String patientName;
     private String hospital;
     private String requestDate;
     // -----------------------------------------------------------------------
 
-    private int recipientId; // ID của người nhận (giữ lại để tham chiếu nếu cần)
+    private int recipientId;
     private String bloodGroup; // Nhóm máu cần
     private int unitsNeeded; // Số lượng đơn vị cần
     private String status; // Trạng thái: Pending, Approved, Rejected

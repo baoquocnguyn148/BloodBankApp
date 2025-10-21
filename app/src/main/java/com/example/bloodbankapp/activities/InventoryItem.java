@@ -1,4 +1,4 @@
-package com.example.bloodbankapp.models;
+package com.example.bloodbankapp.models.inventory;
 
 public class InventoryItem {
     private int id;

@@ -57,9 +57,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.tvUserRole.setText("Role: " + (user.getRole() != null ? user.getRole() : "N/A"));
         holder.tvUserBlood.setText("Blood: " + (user.getBloodGroup() != null && !user.getBloodGroup().isEmpty() ? user.getBloodGroup() : "N/A"));
 
-        // ✅✅✅ SỬA LỖI TẠI ĐÂY ✅✅✅
         if ("admin".equalsIgnoreCase(currentUserRole)) {
-            // ✅ 3. Điều khiển LinearLayout cha
+
             holder.adminActionsLayout.setVisibility(View.VISIBLE);
 
             if ("admin".equalsIgnoreCase(user.getRole())) {
@@ -70,18 +69,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 holder.btnDelete.setText("Delete");
             }
         } else {
-            // ✅ 3. Điều khiển LinearLayout cha
+
             holder.adminActionsLayout.setVisibility(View.GONE);
         }
 
-        // Sự kiện cho nút Edit (không đổi)
         holder.btnEdit.setOnClickListener(v -> {
             Intent intent = new Intent(context, EditProfileActivity.class);
             intent.putExtra("USER_ID_TO_EDIT", user.getUserId());
             context.startActivity(intent);
         });
 
-        // Sự kiện cho nút Delete (không đổi)
+
         holder.btnDelete.setOnClickListener(v -> {
             if ("admin".equalsIgnoreCase(user.getRole())) {
                 Toast.makeText(context, "Cannot delete an admin account.", Toast.LENGTH_SHORT).show();
@@ -115,7 +113,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public static class UserViewHolder extends RecyclerView.ViewHolder {
         TextView tvUserId, tvUserName, tvUserEmail, tvUserPhone, tvUserRole, tvUserBlood;
         Button btnEdit, btnDelete;
-        LinearLayout adminActionsLayout; // ✅ 2. Khai báo LinearLayout
+        LinearLayout adminActionsLayout;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -126,7 +124,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             tvUserRole = itemView.findViewById(R.id.tv_user_role);
             tvUserBlood = itemView.findViewById(R.id.tv_user_blood);
 
-            adminActionsLayout = itemView.findViewById(R.id.layout_admin_actions); // ✅ 2. Ánh xạ LinearLayout
+            adminActionsLayout = itemView.findViewById(R.id.layout_admin_actions);
             btnEdit = itemView.findViewById(R.id.btn_edit_user);
             btnDelete = itemView.findViewById(R.id.btn_delete_user);
         }

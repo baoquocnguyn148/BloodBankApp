@@ -1,7 +1,7 @@
 package com.example.bloodbankapp.models;
 
 public class User {
-    // ✅ BƯỚC 1: THÊM TRƯỜNG 'userId'
+
     private int userId;
     private String email;
     private String name;
@@ -10,11 +10,11 @@ public class User {
     private String bloodGroup;
     private String role;
 
-    // Constructor rỗng (cần thiết cho một số thư viện)
+
     public User() {
     }
 
-    // ✅ BƯỚC 2: CẬP NHẬT CONSTRUCTOR ĐỂ NHẬN CẢ 'userId'
+
     public User(int userId, String email, String name, String phone, String address, String bloodGroup, String role) {
         this.userId = userId;
         this.email = email;
@@ -25,7 +25,7 @@ public class User {
         this.role = role;
     }
 
-    // Constructor để tạo user mới (chưa có ID từ DB)
+
     public User(String email, String name, String phone, String address, String bloodGroup, String role) {
         this.email = email;
         this.name = name;
@@ -35,9 +35,7 @@ public class User {
         this.role = role;
     }
 
-    // --- GETTERS ---
 
-    // ✅ BƯỚC 3: THÊM PHƯƠNG THỨC getUserId()
     public int getUserId() {
         return userId;
     }

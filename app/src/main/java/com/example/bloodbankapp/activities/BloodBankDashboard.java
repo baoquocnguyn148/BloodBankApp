@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bloodbankapp.R;
 
-// ✅ BƯỚC 1: XÓA CÁC IMPORT SAI, THÊM IMPORT DATABASEHELPER
+
 import com.example.bloodbankapp.database.DatabaseHelper;
 import com.example.bloodbankapp.utils.SessionManager;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ public class BloodBankDashboard extends AppCompatActivity {
     private TextView tvTotalUnits, tvPendingRequests;
     private SessionManager sessionManager;
 
-    // ✅ BƯỚC 2: XÓA DAO CŨ, CHỈ DÙNG DATABASEHELPER
+
     private DatabaseHelper dbHelper;
 
     @Override
@@ -27,7 +27,7 @@ public class BloodBankDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_bloodbank_dashboard);
 
         sessionManager = new SessionManager(this);
-        // ✅ BƯỚC 3: KHỞI TẠO DATABASEHELPER
+
         dbHelper = new DatabaseHelper(this);
 
         btnLogout = findViewById(R.id.btnLogout);
@@ -43,7 +43,7 @@ public class BloodBankDashboard extends AppCompatActivity {
         });
     }
 
-    // ✅ BƯỚC 5: DÙNG ONRESUME ĐỂ LUÔN TẢI DỮ LIỆU MỚI NHẤT
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -51,21 +51,17 @@ public class BloodBankDashboard extends AppCompatActivity {
     }
 
     private void loadDashboardData() {
-        // ✅ BƯỚC 4: LẤY DỮ LIỆU TỪ DATABASEHELPER
-        // Lưu ý: Các phương thức này cần được định nghĩa trong DatabaseHelper.java
-        // File DatabaseHelper tôi gửi bạn đã có đủ các phương thức này.
+
         HashMap<String, Integer> bloodData = dbHelper.getBloodGroupCounts();
         int totalUnits = 0;
         for (int units : bloodData.values()) {
             totalUnits += units;
         }
 
-        // Phương thức này cần được thêm vào DatabaseHelper
         int pendingRequests = dbHelper.countPendingRequests();
 
         tvTotalUnits.setText(String.valueOf(totalUnits));
         tvPendingRequests.setText(String.valueOf(pendingRequests));
 
-        // You can display each blood group data here if your layout supports it.
     }
 }

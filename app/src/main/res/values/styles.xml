@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- ✅ SỬA LỖI: Đổi layout_width và xóa thuộc tính không cần thiết -->
+
     <style name="ProfileLabel">
         <item name="android:layout_width">wrap_content</item> <!-- Sửa từ 0dp thành wrap_content -->
         <item name="android:layout_height">wrap_content</item>
@@ -12,7 +12,7 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <!-- ✅ SỬA LỖI: Đổi layout_width và xóa thuộc tính không cần thiết -->
+
     <style name="ProfileValue">
         <item name="android:layout_width">wrap_content</item> <!-- Sửa từ 0dp thành wrap_content -->
         <item name="android:layout_height">wrap_content</item>

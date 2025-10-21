@@ -18,7 +18,6 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "bloodbank_unified.db";
-    // ✅ BƯỚC 1: Tăng phiên bản DB sau khi thay đổi cấu trúc bảng
     private static final int DATABASE_VERSION = 2;
 
     // --- Bảng USERS ---
@@ -31,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_ADDRESS = "address";
     public static final String COLUMN_USER_BLOOD_GROUP = "blood_group";
     public static final String COLUMN_USER_ROLE = "role";
-    // ✅ BƯỚC 2: Khai báo tên cột mới cho FCM Token
+
     public static final String COLUMN_USER_FCM_TOKEN = "fcm_token";
 
     // --- Bảng REQUESTS ---
@@ -53,8 +52,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_INVENTORY_EXPIRY_DATE = "expiry_date";
     public static final String COLUMN_INVENTORY_DONOR_ID = "donor_id";
 
-
-    // ✅ BƯỚC 3: Cập nhật câu lệnh tạo bảng Users
     private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USERS + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_USER_EMAIL + " TEXT UNIQUE NOT NULL,"
@@ -116,12 +113,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // HÀM CHO BẢNG USERS
     // =====================================================================
 
-    // ✅ BƯỚC 4: Thêm hàm mới để cập nhật FCM Token
-    /**
-     * Cập nhật lại FCM token cho một người dùng cụ thể.
-     * @param userId ID của người dùng cần cập nhật.
-     * @param fcmToken Token mới từ Firebase.
-     */
     public void updateUserFcmToken(int userId, String fcmToken) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -180,8 +171,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_BLOOD_GROUP)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_ROLE))
                 );
-                // Bạn có thể thêm lấy fcm_token ở đây nếu cần
-                // user.setFcmToken(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_FCM_TOKEN)));
+
             }
         } catch (Exception e) {
             Log.e("DatabaseHelper", "Error getting user by email", e);
@@ -210,8 +200,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return user;
     }
 
-    // ... (tất cả các hàm khác của bạn giữ nguyên, không cần sửa)
-    // ...
+
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();

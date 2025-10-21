@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bloodbankapp.R;
-// ✅ BƯỚC 1: XÓA IMPORT SAI, THÊM IMPORT DATABASEHELPER
+
 import com.example.bloodbankapp.database.DatabaseHelper;
 import com.example.bloodbankapp.models.Request;
 
@@ -24,13 +24,12 @@ public class BloodRequestAdapter extends RecyclerView.Adapter<BloodRequestAdapte
 
     private final List<Request> requestList;
     private final Context context;
-    // ✅ BƯỚC 2: KHAI BÁO DATABASEHELPER, BỎ REQUESTDAO
+
     private final DatabaseHelper dbHelper;
 
     public BloodRequestAdapter(Context context, List<Request> requestList) {
         this.context = context;
         this.requestList = requestList;
-        // ✅ BƯỚC 3: KHỞI TẠO DATABASEHELPER
         this.dbHelper = new DatabaseHelper(context);
     }
 
@@ -80,7 +79,6 @@ public class BloodRequestAdapter extends RecyclerView.Adapter<BloodRequestAdapte
     }
 
     private void updateStatus(Request request, String newStatus, int position) {
-        // ✅ BƯỚC 4: GỌI PHƯƠNG THỨC TỪ DATABASEHELPER
         int result = dbHelper.updateRequestStatus(request.getId(), newStatus);
 
         if (result > 0) {

@@ -9,10 +9,7 @@ import com.example.bloodbankapp.R;
 import com.example.bloodbankapp.utils.SessionManager;
 import com.google.android.material.button.MaterialButton; // Import MaterialButton
 
-/**
- * HomeActivity giờ đây là một màn hình chính, không còn là màn hình trung chuyển.
- * Nó sẽ kiểm tra session và quyết định điều hướng hoặc ở lại.
- */
+
 public class HomeActivity extends AppCompatActivity {
 
     private SessionManager sessionManager;
@@ -34,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         btnBecomeDonor = findViewById(R.id.btn_become_donor);
         btnRequestBlood = findViewById(R.id.btn_request_blood);
 
-        // ✅ Gán sự kiện click cho nút "Sign In"
+
         btnSignIn.setOnClickListener(v -> {
             // Khi bấm nút, chuyển sang màn hình Login
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
@@ -106,9 +103,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         // Kịch bản 2: Người dùng CHƯA đăng nhập
         else {
-            // ✅ THAY ĐỔI QUAN TRỌNG NHẤT:
-            // Không làm gì cả, chỉ ở yên tại màn hình HomeActivity.
-            // Người dùng sẽ phải tự bấm nút "Sign In".
+
         }
     }
 }

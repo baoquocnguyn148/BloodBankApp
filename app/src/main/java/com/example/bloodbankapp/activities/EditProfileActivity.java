@@ -124,10 +124,8 @@ public class EditProfileActivity extends AppCompatActivity {
         if (rowsAffected > 0) {
             Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
 
-            // Nếu người dùng đang tự sửa thông tin của chính mình, cập nhật lại session
             if (userIdToEdit == sessionManager.getUserId()) {
-                // ✅✅✅ SỬA LỖI TẠI ĐÂY ✅✅✅
-                // Truyền đầy đủ 7 tham số theo đúng định nghĩa của SessionManager
+
                 sessionManager.createLoginSession(
                         sessionManager.getUserId(),
                         name,                         // Tên mới

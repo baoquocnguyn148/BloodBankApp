@@ -38,7 +38,6 @@
     <color name="status_donors_bg">#FFF3E0</color>
     <color name="status_success">#388E3C</color>
 
-    <!-- ✅✅✅ THÊM 2 MÀU CÒN THIẾU CHO TRẠNG THÁI REJECTED ✅✅✅ -->
     <color name="status_rejected_bg">#FFEBEE</color>
     <color name="status_rejected_text">#D32F2F</color>
 

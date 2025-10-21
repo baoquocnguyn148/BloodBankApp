@@ -20,7 +20,7 @@ import java.util.Locale;
 
 public class AddBloodRequestActivity extends AppCompatActivity {
 
-    // Sửa lại cho đúng với file XML
+
     private TextInputEditText etPatientName, etHospital, etQuantity;
     private AutoCompleteTextView actvBloodGroup;
     private Button btnSubmit;
@@ -49,7 +49,7 @@ public class AddBloodRequestActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         etPatientName = findViewById(R.id.et_patient_name);
         etHospital = findViewById(R.id.et_hospital);
-        // ✅ SỬA LỖI 1: Sửa lại kiểu và ID cho đúng
+
         actvBloodGroup = findViewById(R.id.actv_blood_group);
         etQuantity = findViewById(R.id.et_quantity); // ID đúng là et_quantity
         btnSubmit = findViewById(R.id.btn_submit_request);
@@ -76,7 +76,7 @@ public class AddBloodRequestActivity extends AppCompatActivity {
         String patientName = etPatientName.getText().toString().trim();
         String hospital = etHospital.getText().toString().trim();
         String bloodGroup = actvBloodGroup.getText().toString().trim();
-        // ✅ SỬA LỖI 2: Lấy text từ etQuantity
+
         String quantityStr = etQuantity.getText().toString().trim();
 
         if (patientName.isEmpty() || hospital.isEmpty() || bloodGroup.isEmpty() || quantityStr.isEmpty()) {

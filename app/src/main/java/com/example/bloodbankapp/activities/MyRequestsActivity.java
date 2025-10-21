@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bloodbankapp.R;
 import com.example.bloodbankapp.adapters.MyRequestAdapter;
 
-// ✅ BƯỚC 1: XÓA IMPORT SAI, THÊM IMPORT DATABASEHELPER
+
 import com.example.bloodbankapp.database.DatabaseHelper;
 
 import com.example.bloodbankapp.models.Request;
@@ -24,7 +24,6 @@ public class MyRequestsActivity extends AppCompatActivity {
     private SessionManager sessionManager;
     private TextView tvNoRequests;
 
-    // ✅ BƯỚC 2: KHAI BÁO DATABASEHELPER, BỎ REQUESTDAO
     private DatabaseHelper dbHelper;
 
     @Override
@@ -42,7 +41,6 @@ public class MyRequestsActivity extends AppCompatActivity {
         recyclerViewRequests = findViewById(R.id.rv_my_requests);
         tvNoRequests = findViewById(R.id.tv_no_requests);
 
-        // ✅ BƯỚC 3: KHỞI TẠO DATABASEHELPER
         dbHelper = new DatabaseHelper(this);
         sessionManager = new SessionManager(this);
 
@@ -52,7 +50,7 @@ public class MyRequestsActivity extends AppCompatActivity {
 
     private void loadRequests() {
         int userId = sessionManager.getUserId();
-        // ✅ BƯỚC 4: LẤY DỮ LIỆU TỪ DATABASEHELPER
+
         List<Request> requests = dbHelper.getRequestsByUserId(userId);
 
         if (requests.isEmpty()) {

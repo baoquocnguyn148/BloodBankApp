@@ -3,15 +3,14 @@ package com.example.bloodbankapp.models;
 public class BloodUnit {
     private int id;
     private String bloodGroup;
-    private int units; // ✅ SỬA 1: THÊM TRƯỜNG "UNITS" (SỐ LƯỢNG)
+    private int units;
     private String expiryDate;
-    private int donorId; // ✅ SỬA 2: ĐỔI "DONORID" TỪ STRING SANG INT
+    private int donorId;
 
     // Constructor mặc định
     public BloodUnit() {
     }
 
-    // ✅ SỬA 3: CẬP NHẬT LẠI CONSTRUCTOR ĐẦY ĐỦ
     public BloodUnit(int id, String bloodGroup, int units, String expiryDate, int donorId) {
         this.id = id;
         this.bloodGroup = bloodGroup;
@@ -37,7 +36,6 @@ public class BloodUnit {
         this.bloodGroup = bloodGroup;
     }
 
-    // ✅ SỬA 4: THÊM GETTER VÀ SETTER CHO "UNITS"
     public int getUnits() {
         return units;
     }
@@ -54,7 +52,7 @@ public class BloodUnit {
         this.expiryDate = expiryDate;
     }
 
-    // ✅ SỬA 5: SỬA LẠI GETTER VÀ SETTER CHO "DONORID"
+
     public int getDonorId() {
         return donorId;
     }
@@ -63,6 +61,5 @@ public class BloodUnit {
         this.donorId = donorId;
     }
 
-    // Ghi chú: Trường "status" không có trong bảng "inventory" của DatabaseHelper,
-    // nên chúng ta có thể tạm thời bỏ nó đi để tránh nhầm lẫn.
+
 }

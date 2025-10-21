@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bloodbankapp.R;
 import com.example.bloodbankapp.adapters.UserAdapter;
-// ✅ BƯỚC 1: Bỏ UserDAO và import DatabaseHelper
+
 import com.example.bloodbankapp.database.DatabaseHelper;
 import com.example.bloodbankapp.models.User;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -25,7 +25,7 @@ public class DonorListActivity extends AppCompatActivity {
     private Button btnFilter;
     private RecyclerView recyclerViewDonors;
     private UserAdapter userAdapter;
-    // ✅ BƯỚC 2: Khai báo DatabaseHelper
+
     private DatabaseHelper dbHelper;
     private List<User> donorList; // Danh sách để hiển thị trên RecyclerView
     private List<User> allDonorsMasterList; // Danh sách gốc chứa tất cả donor
@@ -35,7 +35,7 @@ public class DonorListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_list);
 
-        // ✅ CẢI TIẾN 2: Sử dụng MaterialToolbar (Giữ nguyên)
+
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -43,7 +43,7 @@ public class DonorListActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // ✅ BƯỚC 3: Khởi tạo dbHelper thay cho UserDAO
+
         dbHelper = new DatabaseHelper(this);
         initViews();
         setupBloodGroupFilter();
@@ -51,7 +51,6 @@ public class DonorListActivity extends AppCompatActivity {
 
         loadAllDonors(); // Tải tất cả donor ban đầu
 
-        // ✅ CẢI TIẾN 3: Tối ưu logic filter (Giữ nguyên)
         btnFilter.setOnClickListener(v -> filterDonors());
     }
 
@@ -62,11 +61,11 @@ public class DonorListActivity extends AppCompatActivity {
     }
 
     private void setupBloodGroupFilter() {
-        // Mảng này có thể được định nghĩa trong R.array.blood_groups nếu muốn
+
         String[] bloodGroups = {"All", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, bloodGroups);
         autoCompleteBloodGroup.setAdapter(adapter);
-        autoCompleteBloodGroup.setText(bloodGroups[0], false); // Đặt giá trị mặc định là "All"
+        autoCompleteBloodGroup.setText(bloodGroups[0], false);
     }
 
     private void setupRecyclerView() {
@@ -77,15 +76,13 @@ public class DonorListActivity extends AppCompatActivity {
     }
 
     private void loadAllDonors() {
-        // ✅ BƯỚC 4: Lấy dữ liệu từ dbHelper thay vì userDAO
-        // Phương thức getAllDonorsByRole đã có trong DatabaseHelper
+
         allDonorsMasterList = dbHelper.getAllDonorsByRole("donor");
 
-        // Gọi filter để hiển thị danh sách ban đầu (trường hợp "All")
+
         filterDonors();
     }
 
-    // ✅ CẢI TIẾN 4: Hàm filter được tối ưu (Giữ nguyên)
     private void filterDonors() {
         String selectedBloodGroup = autoCompleteBloodGroup.getText().toString();
         donorList.clear();

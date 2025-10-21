@@ -14,9 +14,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
 
-    /**
-     * Được gọi khi có một tin nhắn mới từ Firebase.
-     */
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
@@ -34,11 +32,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 
-    /**
-     * ✅ HÀM MỚI QUAN TRỌNG
-     * Được gọi khi Firebase cấp một token mới cho thiết bị.
-     * Token này là địa chỉ duy nhất để gửi thông báo đến chính xác thiết bị này.
-     */
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
@@ -48,10 +41,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendRegistrationToServer(token);
     }
 
-    /**
-     * ✅ HÀM MỚI QUAN TRỌNG
-     * Lưu token vào cơ sở dữ liệu (bảng Users) cho người dùng đang đăng nhập.
-     */
+
     private void sendRegistrationToServer(String token) {
         SessionManager sessionManager = new SessionManager(this);
         // Chỉ cập nhật token nếu người dùng đang đăng nhập

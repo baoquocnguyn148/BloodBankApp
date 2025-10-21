@@ -59,10 +59,8 @@ public class AdminDashboard extends AppCompatActivity {
         tvDonorsCount = findViewById(R.id.tv_donor_count);
         tvRecipientsCount = findViewById(R.id.tv_recipient_count);
 
-        // ✅✅✅ SỬA LỖI TẠI ĐÂY ✅✅✅
-        // Sử dụng đúng ID từ file XML của bạn
-        tvRequestsCount = findViewById(R.id.tv_request_count);      // ID đúng là "tv_request_count"
-        tvBloodBanksCount = findViewById(R.id.tv_blood_bank_count);  // ID đúng là "tv_blood_bank_count"
+        tvRequestsCount = findViewById(R.id.tv_request_count);
+        tvBloodBanksCount = findViewById(R.id.tv_blood_bank_count);
 
         // Ánh xạ các nút quản lý
         btnManageUsers = findViewById(R.id.btn_manage_users);

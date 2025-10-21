@@ -12,7 +12,6 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!-- ✅ SỬA LỖI: Đảm bảo có android:id="@+id/toolbar_view_requests" -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_view_requests"
             android:layout_width="match_parent"
@@ -22,8 +21,6 @@
             app:title="Active Blood Requests"
             app:titleTextColor="@android:color/white" />
     </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- ✅ SỬA LỖI: Đảm bảo có android:id="@+id/rv_blood_requests" -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_blood_requests"
         android:layout_width="match_parent"

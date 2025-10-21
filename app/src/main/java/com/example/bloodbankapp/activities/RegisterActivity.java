@@ -77,12 +77,8 @@ public class RegisterActivity extends AppCompatActivity {
         String bloodGroup = spBloodGroup.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
-
-        // ✅✅✅ SỬA LỖI DUY NHẤT TẠI ĐÂY ✅✅✅
-        // Luôn chuyển vai trò về chữ thường để đảm bảo tính nhất quán
         String role = spUserType.getText().toString().trim().toLowerCase();
 
-        // Kiểm tra dữ liệu đầu vào
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(phone) ||
                 TextUtils.isEmpty(address) || TextUtils.isEmpty(bloodGroup) || TextUtils.isEmpty(role) ||
                 TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
@@ -104,14 +100,14 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Sử dụng constructor đầy đủ vì model của bạn đã có nó
+
                         User newUser = new User(0, email, name, phone, address, bloodGroup, role);
                         long result = dbHelper.addUser(newUser);
 
                         progressBar.setVisibility(View.GONE);
                         btnRegister.setEnabled(true);
 
-                        if (result != -1) { // Kiểm tra với -1 để biết có lỗi insert hay không
+                        if (result != -1) {
                             Toast.makeText(this, "Registration successful! Please login.", Toast.LENGTH_LONG).show();
                             mAuth.signOut();
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -119,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else {
-                            // Nếu không lưu được vào DB, xóa user trên Firebase để tránh rác
+
                             Toast.makeText(this, "Failed to save user details. Rolling back.", Toast.LENGTH_SHORT).show();
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             if (firebaseUser != null) {

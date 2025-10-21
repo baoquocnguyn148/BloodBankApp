@@ -5,10 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;import com.example.bloodbankapp.activities.HomeActivity;
 import java.util.HashMap;
 
-/**
- * Lớp quản lý phiên đăng nhập của người dùng sử dụng SharedPreferences.
- * Đảm bảo lưu trữ và truy xuất thông tin người dùng một cách nhất quán.
- */
 public class SessionManager {
     private final SharedPreferences pref;
     private final SharedPreferences.Editor editor;
@@ -42,37 +38,19 @@ public class SessionManager {
         editor.commit(); // Dùng commit() để đảm bảo an toàn dữ liệu
     }
 
-    // ✅✅✅ BỔ SUNG CÁC HÀM CÒN THIẾU TẠI ĐÂY ✅✅✅
-
-    /**
-     * Lấy ID của người dùng hiện tại.
-     * @return User ID, hoặc -1 nếu không tìm thấy.
-     */
     public int getUserId() {
         return pref.getInt(KEY_USER_ID, -1);
     }
 
-    /**
-     * Lấy tên của người dùng hiện tại.
-     * @return Tên người dùng, hoặc null nếu không tìm thấy.
-     */
     public String getUserName() {
         return pref.getString(KEY_NAME, null);
     }
 
-    /**
-     * Lấy vai trò của người dùng hiện tại.
-     * @return Chuỗi vai trò (ví dụ: "admin") hoặc null nếu không có.
-     */
     public String getUserRole() {
         return pref.getString(KEY_ROLE, null);
     }
 
-    /**
-     * Lấy tất cả thông tin người dùng đã lưu.
-     * @return HashMap chứa thông tin người dùng.
-     */
-    public HashMap<String, String> getUserDetails() {
+   public HashMap<String, String> getUserDetails() {
         HashMap<String, String> user = new HashMap<>();
         user.put(KEY_USER_ID, String.valueOf(pref.getInt(KEY_USER_ID, -1)));
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
@@ -84,22 +62,15 @@ public class SessionManager {
         return user;
     }
 
-    /**
-     * Kiểm tra xem người dùng đã đăng nhập hay chưa.
-     * @return true nếu đã đăng nhập, ngược lại là false.
-     */
+
     public boolean isLoggedIn() {
         return pref.getBoolean(IS_LOGIN, false);
     }
 
-    /**
-     * Xóa toàn bộ dữ liệu phiên và điều hướng người dùng về màn hình trung chuyển (HomeActivity).
-     */
+
     public void logoutUser() {
         editor.clear();
-        editor.commit(); // Dùng commit() để xóa ngay lập tức.
-
-        // Luôn chuyển về HomeActivity khi logout.
+        editor.commit();
         Intent i = new Intent(context, HomeActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(i);

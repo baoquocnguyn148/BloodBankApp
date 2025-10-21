@@ -101,8 +101,6 @@ public class DonorDashboard extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // ✅✅✅ THAY ĐỔI TẠI ĐÂY ✅✅✅
-        // Nút Schedule Donation: Mở màn hình đặt lịch hiến máu
         btnScheduleDonation.setOnClickListener(v -> {
             // Xóa dòng Toast cũ
             // Toast.makeText(this, "Schedule Donation feature is coming soon!", Toast.LENGTH_SHORT).show();

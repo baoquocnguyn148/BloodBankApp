@@ -54,13 +54,10 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-auth")
 
-    // ✅✅✅ THÊM DÒNG NÀY VÀO ĐỂ CÓ CHỨC NĂNG NOTIFICATION ✅✅✅
     implementation("com.google.firebase:firebase-messaging")
 
-    // Play Services tasks
     implementation("com.google.android.gms:play-services-tasks:18.1.0")
 
-    // Thư viện kiểm thử
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

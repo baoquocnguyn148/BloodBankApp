@@ -82,7 +82,7 @@ public class AdminDashboard extends AppCompatActivity {
         btnManageUsers.setOnClickListener(v -> startActivity(new Intent(this, ManageUsersActivity.class)));
         btnViewRequests.setOnClickListener(v -> startActivity(new Intent(this, ViewRequestsActivity.class)));
         btnManageInventory.setOnClickListener(v -> startActivity(new Intent(this, ManageInventoryActivity.class)));
-        btnViewAnalytics.setOnClickListener(v -> Toast.makeText(this, "Function coming soon!", Toast.LENGTH_SHORT).show());
+        btnViewAnalytics.setOnClickListener(v -> startActivity(new Intent(this, AnalyticsActivity.class)));
     }
 
     private void loadDashboardData() {

@@ -67,6 +67,8 @@
         <activity android:name=".activities.MyRequestsActivity" android:exported="false" />
         <activity android:name=".activities.ManageInventoryActivity" android:exported="false" />
         <activity android:name=".activities.ManageUsersActivity" android:exported="false" />
+        <activity android:name=".activities.BloodAvailabilityActivity" android:exported="false" />
+        <activity android:name=".activities.AnalyticsActivity" android:exported="false" />
 
         <!-- ===================================================================== -->
         <!-- SERVICE CHO FIREBASE MESSAGING -->

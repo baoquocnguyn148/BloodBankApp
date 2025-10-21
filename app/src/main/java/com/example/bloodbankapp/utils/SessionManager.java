@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;import com.example.bloodbankapp.activities.HomeActivity;
 import java.util.HashMap;
+import com.example.bloodbankapp.activities.HomeActivity;
 
 public class SessionManager {
     private final SharedPreferences pref;

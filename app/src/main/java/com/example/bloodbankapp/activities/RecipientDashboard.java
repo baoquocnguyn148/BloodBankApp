@@ -98,7 +98,7 @@ public class RecipientDashboard extends AppCompatActivity {
         findViewById(R.id.btn_request_new_blood).setOnClickListener(v -> startActivity(new Intent(this, AddBloodRequestActivity.class)));
         findViewById(R.id.btn_search_donors).setOnClickListener(v -> startActivity(new Intent(this, DonorListActivity.class)));
         findViewById(R.id.btn_my_requests).setOnClickListener(v -> startActivity(new Intent(this, MyRequestsActivity.class)));
-        findViewById(R.id.btn_blood_availability).setOnClickListener(v -> Toast.makeText(this, "Blood Availability clicked", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.btn_blood_availability).setOnClickListener(v -> startActivity(new Intent(this, BloodAvailabilityActivity.class)));
         findViewById(R.id.btn_notifications).setOnClickListener(v -> Toast.makeText(this, "Notifications clicked", Toast.LENGTH_SHORT).show());
     }
 

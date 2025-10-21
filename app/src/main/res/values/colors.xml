@@ -2,14 +2,23 @@
 <resources>
 
     <!-- =============================================================== -->
-    <!-- I. MÀU SẮC CHỦ ĐẠO CỦA ỨNG DỤNG (THEME COLORS) -->
+    <!-- I. MODERN NEUMORPHISM COLOR PALETTE -->
     <!-- =============================================================== -->
-    <color name="colorPrimary">#E63946</color>
-    <color name="colorPrimaryDark">#D82B3A</color>
-    <color name="colorAccent">#457B9D</color>
+    <color name="colorPrimary">#FF6B7A</color>
+    <color name="colorPrimaryDark">#E63946</color>
+    <color name="colorAccent">#FF8A95</color>
 
-    <color name="primary_red">#E63946</color>
-    <color name="primary_red_dark">#D82B3A</color>
+    <!-- Modern Pastel Red Palette -->
+    <color name="primary_red">#FF6B7A</color>
+    <color name="primary_red_dark">#E63946</color>
+    <color name="coral_red">#FF8A95</color>
+    <color name="soft_red">#FFB3BA</color>
+    <color name="pastel_red">#FFE0E3</color>
+    
+    <!-- Neumorphism Background -->
+    <color name="neumorphism_bg">#F5F7FA</color>
+    <color name="neumorphism_light">#FFFFFF</color>
+    <color name="neumorphism_dark">#E8ECF0</color>
 
     <!-- =============================================================== -->
     <!-- II. BẢNG MÀU CƠ BẢN VÀ XÁM (BASIC & GRAYSCALE PALETTE) -->
@@ -19,6 +28,12 @@
     <color name="text_dark">#212529</color>
     <color name="text_gray">#6C757D</color>
     <color name="background_light">#F5F7FA</color>
+    
+    <!-- Modern Status Colors -->
+    <color name="status_success_modern">#4CAF50</color>
+    <color name="status_warning_modern">#FF9800</color>
+    <color name="status_error_modern">#F44336</color>
+    <color name="status_info_modern">#2196F3</color>
 
     <!-- Định nghĩa lại các màu CŨ để các màn hình khác không lỗi -->
     <color name="gray">#6C757D</color>

@@ -8,19 +8,23 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bloodbankapp.R;
+import com.example.bloodbankapp.database.DatabaseHelper;
 import com.example.bloodbankapp.utils.SessionManager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Map;
+
 public class StaffDashboardActivity extends AppCompatActivity {
 
     private MaterialToolbar toolbar;
-    private TextView tvStaffWelcome;
+    private TextView tvStaffWelcome, tvTotalUnits, tvPendingRequests;
     private MaterialCardView cardManageInventory, cardHandleRequests, cardViewDonors, cardLogout;
 
     private SessionManager sessionManager;
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class StaffDashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_staff_dashboard);
 
         sessionManager = new SessionManager(this);
-
+        dbHelper = new DatabaseHelper(this);
 
         if (!sessionManager.isLoggedIn() || !"blood_bank_staff".equals(sessionManager.getUserRole())) {
             logout();
@@ -39,11 +43,14 @@ public class StaffDashboardActivity extends AppCompatActivity {
         setupToolbar();
         setupWelcomeMessage();
         setupClickListeners();
+        loadDashboardData();
     }
 
     private void initViews() {
         toolbar = findViewById(R.id.toolbar);
         tvStaffWelcome = findViewById(R.id.tv_staff_welcome);
+        tvTotalUnits = findViewById(R.id.tv_total_units);
+        tvPendingRequests = findViewById(R.id.tv_pending_requests);
         cardManageInventory = findViewById(R.id.card_manage_inventory);
         cardHandleRequests = findViewById(R.id.card_handle_requests);
         cardViewDonors = findViewById(R.id.card_view_donors);
@@ -98,6 +105,20 @@ public class StaffDashboardActivity extends AppCompatActivity {
                 .show();
     }
 
+
+    private void loadDashboardData() {
+        // Load total blood units
+        Map<String, Integer> bloodCounts = dbHelper.getBloodGroupCounts();
+        int totalUnits = 0;
+        for (int units : bloodCounts.values()) {
+            totalUnits += units;
+        }
+        tvTotalUnits.setText(String.valueOf(totalUnits));
+
+        // Load pending requests
+        int pendingRequests = dbHelper.countPendingRequests();
+        tvPendingRequests.setText(String.valueOf(pendingRequests));
+    }
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();

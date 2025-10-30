@@ -60,3 +60,5 @@ public class BloodAvailabilityAdapter extends RecyclerView.Adapter<BloodAvailabi
         }
     }
 }
+
+

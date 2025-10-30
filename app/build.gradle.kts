@@ -55,6 +55,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
 
     implementation("com.google.firebase:firebase-messaging")
+    implementation ("com.google.firebase:firebase-firestore")
 
     implementation("com.google.android.gms:play-services-tasks:18.1.0")
 

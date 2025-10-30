@@ -2,19 +2,22 @@
 <resources>
 
     <!-- =============================================================== -->
-    <!-- I. MODERN NEUMORPHISM COLOR PALETTE -->
+    <!-- I. BẢNG MÀU CHỦ ĐẠO (PRIMARY COLOR PALETTE) -->
     <!-- =============================================================== -->
-    <color name="colorPrimary">#FF6B7A</color>
-    <color name="colorPrimaryDark">#E63946</color>
-    <color name="colorAccent">#FF8A95</color>
+    <!-- MÀU ĐỎ CHÍNH CỦA APP (ORIGINAL) -->
+    <color name="colorPrimary">#E63946</color>
+    <color name="colorPrimaryDark">#D82B3A</color>
+    <color name="colorAccent">#457B9D</color>
 
-    <!-- Modern Pastel Red Palette -->
-    <color name="primary_red">#FF6B7A</color>
-    <color name="primary_red_dark">#E63946</color>
+    <!-- Bảng màu Đỏ gốc -->
+    <color name="primary_red">#E63946</color>
+    <color name="primary_red_dark">#D82B3A</color>
     <color name="coral_red">#FF8A95</color>
+
+    <!-- Giữ lại các màu pastel để có thể dùng ở những nơi khác nếu cần -->
     <color name="soft_red">#FFB3BA</color>
     <color name="pastel_red">#FFE0E3</color>
-    
+
     <!-- Neumorphism Background -->
     <color name="neumorphism_bg">#F5F7FA</color>
     <color name="neumorphism_light">#FFFFFF</color>
@@ -28,7 +31,7 @@
     <color name="text_dark">#212529</color>
     <color name="text_gray">#6C757D</color>
     <color name="background_light">#F5F7FA</color>
-    
+
     <!-- Modern Status Colors -->
     <color name="status_success_modern">#4CAF50</color>
     <color name="status_warning_modern">#FF9800</color>

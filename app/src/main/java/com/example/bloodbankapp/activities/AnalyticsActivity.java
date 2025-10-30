@@ -223,3 +223,5 @@ public class AnalyticsActivity extends AppCompatActivity {
         loadAnalyticsData();
     }
 }
+
+

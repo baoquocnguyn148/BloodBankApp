@@ -3,6 +3,7 @@ package com.example.bloodbankapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log; // ✅ Import Log
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -12,12 +13,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bloodbankapp.R;
-import com.example.bloodbankapp.database.DatabaseHelper;
+// import com.example.bloodbankapp.database.DatabaseHelper; // ❌ Không dùng DatabaseHelper
 import com.example.bloodbankapp.models.User;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore; // ✅ Import Firestore
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -26,8 +28,11 @@ public class RegisterActivity extends AppCompatActivity {
     private MaterialButton btnRegister;
     private ProgressBar progressBar;
 
-    private DatabaseHelper dbHelper; // Sửa tên biến cho đúng chuẩn
+    // private DatabaseHelper dbHelper; // ❌ Không dùng DatabaseHelper
     private FirebaseAuth mAuth;
+    private FirebaseFirestore dbFirestore; // ✅ Khai báo Firestore instance
+
+    private static final String TAG = "RegisterActivity"; // Thêm TAG
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,8 @@ public class RegisterActivity extends AppCompatActivity {
         setupAdapters();
 
         mAuth = FirebaseAuth.getInstance();
-        dbHelper = new DatabaseHelper(this);
+        dbFirestore = FirebaseFirestore.getInstance(); // ✅ Khởi tạo Firestore
+        // dbHelper = new DatabaseHelper(this); // ❌ Xóa dòng này
 
         btnRegister.setOnClickListener(v -> registerUserWithFirebase());
 
@@ -77,8 +83,11 @@ public class RegisterActivity extends AppCompatActivity {
         String bloodGroup = spBloodGroup.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
-        String role = spUserType.getText().toString().trim().toLowerCase();
+        // Lấy role và chuyển thành chữ thường, thay thế khoảng trắng/ký tự đặc biệt nếu cần
+        String role = spUserType.getText().toString().trim().toLowerCase().replace(" ", "_");
 
+
+        // --- Phần kiểm tra dữ liệu nhập (giữ nguyên) ---
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(phone) ||
                 TextUtils.isEmpty(address) || TextUtils.isEmpty(bloodGroup) || TextUtils.isEmpty(role) ||
                 TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
@@ -93,39 +102,67 @@ public class RegisterActivity extends AppCompatActivity {
             etConfirmPassword.setError("Passwords do not match");
             return;
         }
+        // --- Kết thúc kiểm tra ---
+
 
         progressBar.setVisibility(View.VISIBLE);
         btnRegister.setEnabled(false);
 
+        // 1. Tạo tài khoản trên Firebase Auth
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
+                .addOnCompleteListener(this, authTask -> {
+                    if (authTask.isSuccessful()) {
+                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                        if (firebaseUser != null) {
+                            String uid = firebaseUser.getUid();
 
-                        User newUser = new User(0, email, name, phone, address, bloodGroup, role);
-                        long result = dbHelper.addUser(newUser);
+                            // ✅ 2. Tạo đối tượng User với constructor đúng (String uid, ...)
+                            // Đảm bảo bạn đã thêm constructor này vào User.java
+                            User newUser = new User(uid, email, name, phone, address, bloodGroup, role);
 
-                        progressBar.setVisibility(View.GONE);
-                        btnRegister.setEnabled(true);
+                            // ✅ 3. Lưu đối tượng User vào Firestore
+                            dbFirestore.collection("users").document(uid) // Sử dụng uid làm ID document
+                                    .set(newUser) // Lưu toàn bộ đối tượng User
+                                    .addOnSuccessListener(aVoid -> {
+                                        Log.d(TAG, "User profile created in Firestore for UID: " + uid);
+                                        progressBar.setVisibility(View.GONE);
+                                        btnRegister.setEnabled(true);
+                                        Toast.makeText(RegisterActivity.this, "Registration successful! Please login.", Toast.LENGTH_LONG).show();
+                                        mAuth.signOut(); // Đăng xuất để yêu cầu đăng nhập lại
+                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                        finish();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        // ⚠️ Lỗi khi lưu vào Firestore
+                                        Log.w(TAG, "Error adding user document to Firestore", e);
+                                        progressBar.setVisibility(View.GONE);
+                                        btnRegister.setEnabled(true);
+                                        Toast.makeText(RegisterActivity.this, "Registration failed: Could not save user details. Please try again.", Toast.LENGTH_LONG).show();
+                                        // Xóa tài khoản Auth vừa tạo để tránh user bị treo
+                                        firebaseUser.delete().addOnCompleteListener(deleteTask -> {
+                                            if (deleteTask.isSuccessful()) {
+                                                Log.d(TAG, "Firebase Auth user deleted after Firestore failure.");
+                                            } else {
+                                                Log.w(TAG, "Failed to delete Firebase Auth user after Firestore failure.", deleteTask.getException());
+                                            }
+                                        });
+                                    });
 
-                        if (result != -1) {
-                            Toast.makeText(this, "Registration successful! Please login.", Toast.LENGTH_LONG).show();
-                            mAuth.signOut();
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                            finish();
                         } else {
-
-                            Toast.makeText(this, "Failed to save user details. Rolling back.", Toast.LENGTH_SHORT).show();
-                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                            if (firebaseUser != null) {
-                                firebaseUser.delete();
-                            }
+                            // Trường hợp hiếm gặp: Auth thành công nhưng firebaseUser là null
+                            progressBar.setVisibility(View.GONE);
+                            btnRegister.setEnabled(true);
+                            Log.w(TAG, "createUserWithEmail:success, but FirebaseUser is null");
+                            Toast.makeText(RegisterActivity.this, "Registration failed: Could not get user information.", Toast.LENGTH_LONG).show();
                         }
                     } else {
+                        // Đăng ký Auth thất bại
                         progressBar.setVisibility(View.GONE);
                         btnRegister.setEnabled(true);
-                        Toast.makeText(RegisterActivity.this, "Registration Failed: " + task.getException().getMessage(),
+                        Log.w(TAG, "createUserWithEmail:failure", authTask.getException());
+                        Toast.makeText(RegisterActivity.this, "Registration Failed: " + authTask.getException().getMessage(),
                                 Toast.LENGTH_LONG).show();
                     }
                 });

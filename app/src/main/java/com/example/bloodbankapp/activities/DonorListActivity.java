@@ -77,7 +77,7 @@ public class DonorListActivity extends AppCompatActivity {
 
     private void loadAllDonors() {
 
-        allDonorsMasterList = dbHelper.getAllDonorsByRole("donor");
+        allDonorsMasterList = dbHelper.getUsersByRole("donor"); // Sửa tên phương thức
 
 
         filterDonors();

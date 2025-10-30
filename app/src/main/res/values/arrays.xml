@@ -18,4 +18,10 @@
         <item>Blood_Bank_Staff</item>
     </string-array>
 
+    <string-array name="user_roles_admin">
+        <item>Donor</item>
+        <item>Recipient</item>
+        <item>Blood_Bank_Staff</item>
+        <item>Admin</item> </string-array>
+
 </resources>

@@ -89,6 +89,15 @@ public class AdminDashboard extends AppCompatActivity {
         String adminName = sessionManager.getUserName();
         tvWelcomeAdmin.setText("Welcome, " + (adminName != null ? adminName : "Admin"));
 
+        // 🔍 DEBUG: Log all users in database
+        Log.d("AdminDashboard", "=== DEBUG: ALL USERS IN DATABASE ===");
+        java.util.List<com.example.bloodbankapp.models.User> allUsers = dbHelper.getAllUsers();
+        Log.d("AdminDashboard", "Total users in DB: " + allUsers.size());
+        for (com.example.bloodbankapp.models.User user : allUsers) {
+            Log.d("AdminDashboard", "User: " + user.getName() + " | Email: " + user.getEmail() + " | Role: [" + user.getRole() + "]");
+        }
+        Log.d("AdminDashboard", "=== END DEBUG ===");
+
         // Gọi các hàm đếm từ DatabaseHelper
         int donorCount = dbHelper.countUsersByRole("donor");
         int recipientCount = dbHelper.countUsersByRole("recipient");

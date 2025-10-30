@@ -124,3 +124,5 @@ public class AnalyticsData {
                 .orElse(0);
     }
 }
+
+
